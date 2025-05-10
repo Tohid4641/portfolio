@@ -16,7 +16,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    cssMinify: true
+    cssMinify: true,
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   },
   base: process.env.VITE_BASE_PATH || '/portfolio',
 });
