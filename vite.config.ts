@@ -20,9 +20,11 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
       }
     }
   },
-  base: process.env.VITE_BASE_PATH || '/portfolio',
+  base: process.env.VITE_BASE_PATH || '/',
 });
