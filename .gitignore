@@ -12,10 +12,18 @@ dist
 dist-ssr
 *.local
 
+# Env files
 .env.production*
 .env*
-src/assets/images/*
-src/assets/pdfs/*
+
+# Assets
+/src/assets/images
+/src/assets/pdfs
+/src/assets/**/*.png
+/src/assets/**/*.jpg
+/src/assets/**/*.jpeg
+/src/assets/**/*.gif
+/src/assets/**/*.pdf
 
 # Editor directories and files
 .vscode/*
