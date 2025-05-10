@@ -17,13 +17,13 @@ dist-ssr
 .env*
 
 # Assets
-/src/assets/images
-/src/assets/pdfs
-/src/assets/**/*.png
-/src/assets/**/*.jpg
-/src/assets/**/*.jpeg
-/src/assets/**/*.gif
-/src/assets/**/*.pdf
+# /src/assets/images
+# /src/assets/pdfs
+# /src/assets/**/*.png
+# /src/assets/**/*.jpg
+# /src/assets/**/*.jpeg
+# /src/assets/**/*.gif
+# /src/assets/**/*.pdf
 
 # Editor directories and files
 .vscode/*
