@@ -15,16 +15,19 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    cssMinify: true,
-    cssCodeSplit: true,
+    assetsDir: 'assets',
+    cssCodeSplit: false,
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[hash].[ext]',
-        chunkFileNames: 'assets/[name].[hash].js',
-        entryFileNames: 'assets/[name].[hash].js',
+        manualChunks: undefined,
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith('.css')) {
+            return 'assets/styles.[hash].css'
+          }
+          return 'assets/[name].[hash][extname]'
+        }
       }
     }
   },
-  base: process.env.VITE_BASE_PATH || './portfolio',
+  base: process.env.VITE_BASE_PATH || './',
 });
