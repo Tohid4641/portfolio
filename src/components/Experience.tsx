@@ -12,6 +12,20 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    company: 'Tekisky Pvt. Ltd',
+    roles: [
+      {
+        title: 'Full Stack Developer | Mentor | Office Coordinator',
+        period: 'Sept 2024 - Present',
+        highlights: [
+          'Designed and maintained backend APIs for multiple full-stack projects with Node.js, Express.js and MongoDB. ',
+          'Provided mentorship on backend development, RESTful API design, and database optimization to students and junior developers. ',
+          'Managed office operations and client communication, ensuring smooth project delivery. ',
+        ]
+      }
+    ]
+  },
+  {
     company: 'Redbytes Software',
     roles: [
       {

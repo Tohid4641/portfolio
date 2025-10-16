@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import profileImg from '../assets/images/profile.png';
-import myResume from '../assets/pdfs/Tauhid Full Stack Developer.pdf';
+import myResume from '../assets/pdfs/Tauhid Node.js Backend Developer.pdf';
 
 const Hero = () => {
   const [showProfile, setShowProfile] = useState(false);
@@ -102,11 +102,11 @@ const Hero = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
                 I'm a{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Full Stack Developer
+                  Backend Developer
                 </span>
               </h1>
               <p className="text-xl text-gray-700 dark:text-gray-300">
-                Specializing in Node.js & MERN Stack Development
+                Specializing in Node.js, Express, and API Development
               </p>
             </motion.div>
 
@@ -116,7 +116,7 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-lg mb-8 text-gray-600 dark:text-gray-400"
             >
-              Building scalable web applications with modern technologies
+              Building secure and scalable backend systems with modern technologies.
             </motion.p>
 
             <div className="flex gap-6 mb-8">
@@ -158,12 +158,13 @@ const Hero = () => {
               </motion.a>
               <motion.a
                 href={myResume}
-                download
+                
+                target='_blank'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg shadow-lg transition-colors"
               >
-                Download Resume
+                Resume
               </motion.a>
             </div>
           </motion.div>
