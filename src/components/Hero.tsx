@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
-import profileImg from '../assets/images/profile.png';
+import profileImg from '../assets/images/profile3.png';
 import myResume from '../assets/pdfs/Tauhid Node.js Backend Developer.pdf';
 
 const Hero = () => {
@@ -53,7 +53,7 @@ const Hero = () => {
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -100 }}
-            animate={{ 
+            animate={{
               opacity: [0, 1, 1, 0],
               x: [-100, 0, 200, 300],
               y: [Math.random() * 100, Math.random() * 200]
@@ -64,13 +64,12 @@ const Hero = () => {
               repeat: Infinity,
               repeatDelay: Math.random() * 5
             }}
-            className={`absolute left-0 font-mono text-sm whitespace-nowrap ${
-              snippet.type === 'frontend' 
-                ? 'text-blue-600/20 dark:text-blue-400/20' 
-                : snippet.type === 'backend' 
-                  ? 'text-purple-600/20 dark:text-purple-400/20'
-                  : 'text-gray-600/20 dark:text-gray-400/20'
-            }`}
+            className={`absolute left-0 font-mono text-sm whitespace-nowrap ${snippet.type === 'frontend'
+              ? 'text-blue-600/20 dark:text-blue-400/20'
+              : snippet.type === 'backend'
+                ? 'text-purple-600/20 dark:text-purple-400/20'
+                : 'text-gray-600/20 dark:text-gray-400/20'
+              }`}
             style={{
               top: `${(index * 10) + Math.random() * 60}%`,
             }}
@@ -120,14 +119,14 @@ const Hero = () => {
             </motion.p>
 
             <div className="flex gap-6 mb-8">
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 href="mailto:dev.tauhid@gamil.com"
                 className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
               >
                 <FaEnvelope className="w-6 h-6" />
               </motion.a>
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 href="https://www.linkedin.com/in/shaikh-tauhid-1a9787208/"
                 target="_blank"
@@ -136,7 +135,7 @@ const Hero = () => {
               >
                 <FaLinkedinIn className="w-6 h-6" />
               </motion.a>
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 href="https://github.com/Tohid4641"
                 target="_blank"
@@ -158,7 +157,7 @@ const Hero = () => {
               </motion.a>
               <motion.a
                 href={myResume}
-                
+
                 target='_blank'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -190,7 +189,7 @@ const Hero = () => {
                 }}
                 className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-2xl"
               />
-              
+
               {/* Code reveal and profile image container */}
               <AnimatePresence mode="wait">
                 {!showProfile ? (
@@ -198,7 +197,7 @@ const Hero = () => {
                     key="code"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ 
+                    exit={{
                       opacity: 0,
                       rotateY: 90,
                       transition: { duration: 0.5 }

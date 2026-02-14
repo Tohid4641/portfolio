@@ -44,7 +44,7 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
                 <Swiper
                   modules={[Navigation, Pagination, Autoplay]}
                   navigation={{
@@ -58,12 +58,12 @@ const Projects = () => {
                 >
                   {project.images.map((image, imageIndex) => (
                     <SwiperSlide key={imageIndex}>
-                      <div className="relative w-full h-full">
+                      <div className="relative w-full h-full flex items-center justify-center">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 group-hover:from-black/80 transition-colors z-10" />
                         <img
                           src={image}
                           alt={`${project.title} screenshot ${imageIndex + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
                     </SwiperSlide>

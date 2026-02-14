@@ -63,7 +63,7 @@ const ProjectDetails = ({ project, onClose }: ProjectDetailsProps) => {
           </button>
 
           {/* Project image carousel */}
-          <div className="w-full aspect-video relative">
+          <div className="w-full aspect-video relative bg-black">
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               navigation={{
@@ -77,13 +77,13 @@ const ProjectDetails = ({ project, onClose }: ProjectDetailsProps) => {
             >
               {project.images.map((image, index) => (
                 <SwiperSlide key={index}>
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-full flex items-center justify-center bg-black">
                     <img
                       src={image}
                       alt={`${project.title} screenshot ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </SwiperSlide>
               ))}

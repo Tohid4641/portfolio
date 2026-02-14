@@ -32,15 +32,95 @@ import jtaImage from '../assets/images/jta.png';
 import jtatimingImage from '../assets/images/jtatiming.png';
 import jtaupdatepageImage from '../assets/images/jtaupdatepage.png';
 
+import adminBalancesheet from '../assets/images/poultry-record-app/admin-balancesheet.png';
+import adminCustomerDetails from '../assets/images/poultry-record-app/admin-customerdetails.png';
+import adminHomepage from '../assets/images/poultry-record-app/admin-homepage.png';
+import adminTripDetails from '../assets/images/poultry-record-app/admin-tripdetails.png';
+import adminTrips from '../assets/images/poultry-record-app/admin-trips.png';
+import adminUsers from '../assets/images/poultry-record-app/admin-users.png';
+import supervisorDashboard from '../assets/images/poultry-record-app/supervisor-dashboard.jpeg';
+import supervisorStockAddPurchase from '../assets/images/poultry-record-app/supervisor-stock-addpurchase.jpeg';
+import supervisorStockAddSale from '../assets/images/poultry-record-app/supervisor-stock-addsale.jpeg';
+import supervisorStock from '../assets/images/poultry-record-app/supervisor-stock.jpeg';
+import supervisorTripAddPurchase from '../assets/images/poultry-record-app/supervisor-trip-addpurchase.jpeg';
+import supervisorTripAddSale from '../assets/images/poultry-record-app/supervisor-trip-addsale.jpeg';
+import supervisorTripDetails from '../assets/images/poultry-record-app/supervisor-tripdetails.jpeg';
+import supervisorTrip from '../assets/images/poultry-record-app/supervisor-trips.jpeg';
+
+
 import { ProjectDetail } from '../components/ProjectDetails';
 
 const projects: ProjectDetail[] = [
+    {
+        id: 'poultryapp',
+        title: 'Poultry Farm Management System',
+        description: 'A comprehensive, hybrid ERP solution designed to digitize the end-to-end operations of a poultry business. It bridges the gap between complex field logistics (Trips) and standard business accounting (Tally Prime).',
+        longDescription: `This system digitizes the entire lifecycle of a poultry trading business. It handles complex "Trip-based" operations—tracking bird purchases, sales, mortality, and route expenses—while automatically ensuring financial accuracy. The platform includes a mobile-first PWA for field supervisors to work offline, a Customer Portal for clients to view ledgers and make payments, and a robust backend that integrates seamlessly with Tally Prime for accounting compliance.`,
+        techStack: ['React 19', 'Vite', 'Tailwind CSS', 'Progressive Web App (PWA) with Offiline Capabilities', 'Node.js', 'Express.js', 'REST APIs', 'MongoDB (Mongoose)', 'JWT', 'Git', 'Axios', 'Chart.js'],
+        features: [
+            'A complete lifecycle tracker for every truck trip – from loading birds at the farm to selling them to customers. It calculates Net Profit per trip instantly.',
+            'Supervisors in remote areas can record sales and expenses on their phones. The app syncs data automatically once they are back online.',
+            'It’s not just an operational tool; it’s an accounting system. Every sale or expense automatically updates the Balance Sheet and Profit & Loss reports.',
+            'A self-service dashboard where customers can see how much they owe (Outstanding Balance), download their purchase history (Ledgers), and make payments.',
+            'Tracks live stock of birds and feed at the farm, accounting for returns from trips and natural mortality.',
+        ],
+        achievement: 'The solution helped stop revenue leaks by accurately tracking bird mortality and weight loss, reduced the accountant’s workload by 80% through automated reporting, and improved transparency with a customer portal that minimized billing disputes and outstanding balance issues.',
+        challenges: [
+            'The trip model (Supervisor, Driver, Labor → Vendor Purchase → Customer Delivery) was not systematically tracked.',
+            'Bird mortality and weight loss calculations were difficult to manage efficiently within a general accounting system.',
+            'Diesel and other trip-related expenses were not structured or transparently tracked.',
+            'Unsold birds returning to inventory and feed consumption were not properly monitored or adjusted.',
+            'TallyPrime is designed for general accounting and not optimized for specialized operational workflows.'
+        ],
+        solutions: [
+            'Developed a dedicated Trip Management Module to manage the full trip lifecycle, including team allocation, purchases, deliveries, and completion tracking.',
+            'Built a specialized Mortality & Weight Loss Tracking Module to accurately monitor losses and prevent revenue leakage.',
+            'Implemented a Trip-wise Expense Management System to record and monitor all operational costs in real time.',
+            'Created a dedicated Inventory & Feed Management Module to track stock movements, returns, and feed usage efficiently.',
+            `Designed a Hybrid System Architecture:
+
+Custom Software → Manages operational complexities.
+
+Tally Prime → Handles statutory accounting and compliance
+
+Ensured seamless data synchronization between both systems`,
+        ],
+        images: [
+            adminBalancesheet,
+            adminHomepage,
+            adminCustomerDetails,
+            adminTripDetails,
+            adminTrips,
+            adminUsers,
+            supervisorDashboard,
+            supervisorStockAddPurchase,
+            supervisorStockAddSale,
+            supervisorStock,
+            supervisorTripAddPurchase,
+            supervisorTripAddSale,
+            supervisorTripDetails,
+            supervisorTrip,
+            // Add more images here
+        ],
+        githubUrl: '',
+        liveUrl: 'https://poultry-record-frontend.vercel.app/',
+        company: 'Tekisky Private Limited',
+        role: 'Full Stack Developer & System Architect',
+        duration: '4 month',
+        // subProjects: [
+        //     {
+        //         name: 'Jamaat Timing Web Application',
+        //         description: 'Not deployed yet',
+        //         link: ''
+        //     },
+        // ]
+    },
     {
         id: 'jta',
         title: 'Jamaat Timing App (Islamic Utility App)',
         description: 'A web application for Jamaat timings and notifications',
         longDescription: `A unique real-time web application that enables users to search and view Jamaat and Adhaan timings of registered mosques, while allowing community admins to manage masjid data and super admins to verify and approve timings.`,
-        techStack: ['React.js', 'Tailwind CSS', 'DaisyUI', 'Redux', 'Redux Persist', 'Redux Toolkit', 'Axios', 'React Router DOM', 'Node.js', 'Express', 'REST APIs', 'MongoDB', 'Mongoose', 'JWT','Git', 'Postman'],
+        techStack: ['React.js', 'Tailwind CSS', 'DaisyUI', 'Redux', 'Redux Persist', 'Redux Toolkit', 'Axios', 'React Router DOM', 'Node.js', 'Express', 'REST APIs', 'MongoDB', 'Mongoose', 'JWT', 'Git', 'Postman'],
         features: [
             'Developed role-based architecture (User, Community Admin, Super Admin) with permission-based routing.',
             'Implemented mosque search, registration, and real-time timing updates.',
