@@ -82,7 +82,7 @@ const experiences: Experience[] = [
 const education = [
   {
     degree: 'Diploma in Python Web Development',
-    institution: 'Tekisky Pvt. Ltd — Training Program',
+    institution: 'FirstBit Solutions — Pune',
     period: 'Feb 2021 – Jul 2021',
     duration: '6 months · 300 hrs intensive',
     highlights: [
