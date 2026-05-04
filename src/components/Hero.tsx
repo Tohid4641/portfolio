@@ -95,17 +95,33 @@ const Hero = () => {
               transition={{ delay: 0.3 }}
               className="mb-6"
             >
+              {/* Availability Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700/50 shadow-sm"
+              >
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span className="text-xs font-semibold text-green-700 dark:text-green-400 tracking-wide whitespace-nowrap">
+                  Open to Work · Available for Remote Roles
+                </span>
+              </motion.div>
+
               <h2 className="text-lg text-blue-600 dark:text-blue-400 font-semibold mb-2">
                 Hi there! 👋
               </h2>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
                 I'm a{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Backend Developer
+                  Full Stack Developer
                 </span>
               </h1>
               <p className="text-xl text-gray-700 dark:text-gray-300">
-                Specializing in Node.js, Express, and API Development
+                Specializing in MERN stack development
               </p>
             </motion.div>
 
@@ -115,7 +131,8 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-lg mb-8 text-gray-600 dark:text-gray-400"
             >
-              Building secure and scalable backend systems with modern technologies.
+              {/* Full Stack Developer with 4+ years of experience building scalable web applications used by real users, focused on performance and clean architecture. */}
+              I build fast, scalable web apps that solve real business problems, using AI to accelerate development and deliver production-ready solutions.
             </motion.p>
 
             <div className="flex gap-6 mb-8">
@@ -153,7 +170,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg shadow-lg transition-colors"
               >
-                View Projects
+                🚀 View My Work
               </motion.a>
               <motion.a
                 href={myResume}
@@ -163,7 +180,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg shadow-lg transition-colors"
               >
-                Resume
+                📄 Download Resume
               </motion.a>
             </div>
           </motion.div>

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
 const SEO = () => {
-  const title = "Full Stack Developer | Node.js & MERN Specialist";
+  const title = "Shaikh Tauhid | Full Stack Developer | Node.js & MERN Specialist";
   const description = "Full Stack Developer specializing in Node.js and MERN stack. Building scalable web applications with modern technologies.";
-  const siteUrl = "https://your-portfolio.com";
+  const siteUrl = "https://tauhiddev.vercel.app";
   const image = "/og-image.jpg";
 
   useEffect(() => {
@@ -28,8 +28,8 @@ const SEO = () => {
 
   const updateMetaTag = (name: string, content: string) => {
     let meta = document.querySelector(`meta[name="${name}"]`) ||
-               document.querySelector(`meta[property="${name}"]`);
-    
+      document.querySelector(`meta[property="${name}"]`);
+
     if (!meta) {
       meta = document.createElement('meta');
       if (name.startsWith('og:')) {
