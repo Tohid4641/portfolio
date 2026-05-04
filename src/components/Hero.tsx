@@ -1,12 +1,105 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import profileImg from '../assets/images/profile3.png';
 import myResume from '../assets/pdfs/Shaikh Tauhid Full Stack Developer.pdf';
+
+// Animated counter hook
+const useCounter = (target: number, duration: number = 1500, startCounting: boolean = false) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!startCounting) return;
+    let start = 0;
+    const step = Math.ceil(target / (duration / 16));
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(start);
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [target, duration, startCounting]);
+  return count;
+};
+
+// Stat counter sub-component
+const StatCounter = ({ value, suffix, label, startCounting }: { value: number; suffix: string; label: string; startCounting: boolean }) => {
+  const count = useCounter(value, 1500, startCounting);
+  return (
+    <div className="text-center px-3 py-4 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/40 shadow-sm">
+      <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        {count}{suffix}
+      </div>
+      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium tracking-wide uppercase">
+        {label}
+      </div>
+    </div>
+  );
+};
+
+// Greeting bubble that cycles messages above the profile photo
+const greetingMessages = [
+  { emoji: '👋', text: "Hey, I'm Tauhid!" },
+  { emoji: '💼', text: 'Available for hire!' },
+  { emoji: '🚀', text: 'Let\'s build something great!' },
+  { emoji: '🌐', text: 'Open to remote roles!' },
+];
+
+const GreetingBubble = () => {
+  const [msgIndex, setMsgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMsgIndex(prev => (prev + 1) % greetingMessages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const msg = greetingMessages[msgIndex];
+
+  return (
+    <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={msgIndex}
+          initial={{ opacity: 0, y: 12, scale: 0.88 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -10, scale: 0.92 }}
+          transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+          className="relative px-5 py-2.5 rounded-2xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-md border border-gray-200/70 dark:border-gray-600/50 shadow-xl whitespace-nowrap"
+        >
+          {/* Bubble tail */}
+          <span className="absolute -bottom-[9px] left-1/2 -translate-x-1/2 w-0 h-0
+            border-l-[9px] border-l-transparent
+            border-r-[9px] border-r-transparent
+            border-t-[10px] border-t-white/90 dark:border-t-gray-800/90" />
+
+          <span className="flex items-center gap-2 text-sm font-semibold text-gray-800 dark:text-gray-100">
+            <motion.span
+              key={`emoji-${msgIndex}`}
+              initial={{ rotate: -20, scale: 0.6 }}
+              animate={{ rotate: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              className="text-lg"
+            >
+              {msg.emoji}
+            </motion.span>
+            {msg.text}
+          </span>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const Hero = () => {
   const [showProfile, setShowProfile] = useState(false);
   const [currentCodeLine, setCurrentCodeLine] = useState(0);
+  const [statsVisible, setStatsVisible] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   const backendCodeLines = [
     'Scalable Full Stack Dev',
@@ -32,6 +125,15 @@ const Hero = () => {
     }
   }, [currentCodeLine]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStatsVisible(true); },
+      { threshold: 0.3 }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const codeSnippets = [
     { text: "npm run build", delay: 0.2, type: 'command' },
     { text: "const app = express();", delay: 0.4, type: 'backend' },
@@ -45,9 +147,9 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       {/* Background animation elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5" />
         {codeSnippets.map((snippet, index) => (
           <motion.div
@@ -80,7 +182,7 @@ const Hero = () => {
       </div>
 
       {/* Main content */}
-      <div className="container max-w-7xl mx-auto px-8 min-h-screen flex items-center">
+      <div className="container max-w-7xl mx-auto px-6 sm:px-8 pt-24 pb-10 flex items-center min-h-screen">
         <div className="w-full grid md:grid-cols-2 gap-8 items-center">
           {/* Text content */}
           <motion.div
@@ -138,7 +240,7 @@ const Hero = () => {
             <div className="flex gap-6 mb-8">
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
-                href="mailto:dev.tauhid@gamil.com"
+                href="mailto:dev.tauhid@gmail.com"
                 className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
               >
                 <FaEnvelope className="w-6 h-6" />
@@ -183,6 +285,24 @@ const Hero = () => {
                 📄 Download Resume
               </motion.a>
             </div>
+
+            {/* Stats Bar */}
+            <motion.div
+              ref={statsRef}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 }}
+              className="relative z-20 mt-6 pt-6 border-t border-gray-200 dark:border-gray-700/50 grid grid-cols-2 sm:grid-cols-4 gap-3"
+            >
+              {[
+                { value: 4, suffix: '+', label: 'Years Exp.' },
+                { value: 10, suffix: '+', label: 'Projects Built' },
+                { value: 500, suffix: '+', label: 'API Clients' },
+                { value: 99, suffix: '.9%', label: 'Uptime SLA' },
+              ].map((stat) => (
+                <StatCounter key={stat.label} {...stat} startCounting={statsVisible} />
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Profile Image with Code Animation */}
@@ -192,7 +312,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="hidden md:block relative col-span-1"
           >
-            <div className="relative w-[400px] h-[400px] mx-auto">
+            <div className="relative w-full max-w-[340px] aspect-square mx-auto">
               {/* Animated circles behind the image */}
               <motion.div
                 animate={{
@@ -243,6 +363,9 @@ const Hero = () => {
                     transition={{ duration: 0.5 }}
                     className="relative w-full h-full"
                   >
+                    {/* Greeting Bubble */}
+                    <GreetingBubble />
+
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl w-full h-full"
