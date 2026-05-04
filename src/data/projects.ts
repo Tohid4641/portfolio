@@ -548,7 +548,7 @@ Fleet Management UAE`,
         ],
         githubUrl: 'https://github.com/yourusername/vehicle-tracking',
         //liveUrl: 'https://vehicletracking.qa',
-        company: 'Tekisky Pvt. Ltd.',
+        company: 'Tekisky Private Limited',
         role: 'Full Stack Developer | Team Coordinator',
         duration: '6 months',
         subProjects: [

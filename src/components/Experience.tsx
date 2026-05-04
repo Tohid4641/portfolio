@@ -15,12 +15,12 @@ const experiences: Experience[] = [
     company: 'Tekisky Pvt. Ltd',
     roles: [
       {
-        title: 'Full Stack Developer | Mentor | Office Coordinator',
+        title: 'Full Stack Developer',
         period: 'Sept 2024 - Present',
         highlights: [
-          'Designed and maintained backend APIs for multiple full-stack projects with Node.js, Express.js and MongoDB. ',
-          'Provided mentorship on backend development, RESTful API design, and database optimization to students and junior developers. ',
-          'Managed office operations and client communication, ensuring smooth project delivery. ',
+          'Developed 3 production-grade MERN stack applications, streamlining business and content management processes by ~40%.',
+          'Designed MongoDB schemas and admin dashboards, improving query performance by ~30%.',
+          'Managed end-to-end deployment (Vercel and backend hosting), ensuring 99%+ uptime. ',
         ]
       }
     ]
@@ -49,10 +49,9 @@ const experiences: Experience[] = [
         title: 'MERN Full Stack Developer',
         period: 'Nov 2021 - Nov 2022',
         highlights: [
-          'Developed full-stack web applications using MERN stack',
-          'Implemented responsive designs and improved user experience',
-          'Collaborated with cross-functional teams to deliver high-quality solutions',
-          'Mentored junior developers in modern web technologies'
+          'Built responsive web applications with admin panel, supporting 1k+ monthly users.',
+          'Integrated CRUD APIs with 3+ mobile apps, enabling real-time data sync for 50k+ monthly active users',
+          'Collaborated with cross-functional teams to enhance user experience and deliver production-ready features.',
         ]
       },
       {
@@ -62,6 +61,13 @@ const experiences: Experience[] = [
           'Learned and implemented MERN stack development practices',
           'Participated in team projects and code reviews',
           'Assisted in developing and maintaining web applications'
+        ]
+      },
+      {
+        title: 'Diploma in Python Web Development',
+        period: 'Feb 2021 - Jul 2021',
+        highlights: [
+          'Completed 300-hour intensive training program in Python web development covering Python, Django, HTML, CSS, JavaScript, DBMS, MySQL.'
         ]
       }
     ]
@@ -127,7 +133,7 @@ const Experience = () => {
                       <div className="absolute inset-0 m-1 bg-blue-500 dark:bg-blue-400 rounded-full" />
                     </div>
                   </div>
-                  
+
                   <div className="pl-16 md:pl-0">
                     <h4 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-1">
                       {role.title}

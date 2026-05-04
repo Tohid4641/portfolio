@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import { motion } from 'framer-motion';
 import { FaReact, FaNode, FaAws, FaDocker } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiExpress, SiGraphql, SiMongodb, SiPostgresql, SiRedis, SiSwagger, SiJest, SiJenkins, SiMysql } from 'react-icons/si';
+import { SiTypescript, SiTailwindcss, SiExpress, SiGraphql, SiMongodb, SiPostgresql, SiRedis, SiSwagger, SiJest, SiJenkins, SiMysql, SiBootstrap } from 'react-icons/si';
 import { VscGithubAction } from 'react-icons/vsc';
 import { TbApi } from 'react-icons/tb';
 import { MdSecurity } from 'react-icons/md';
@@ -17,9 +17,9 @@ const skills: Skill[] = [
   { name: 'Node.js', icon: <FaNode className="text-[#339933] text-2xl" />, category: 'Backend' },
   { name: 'Express.js', icon: <SiExpress className="text-2xl" />, category: 'Backend' },
   { name: 'RESTful APIs', icon: <TbApi className="text-[#00B8D9] text-2xl" />, category: 'Backend' },
-  { name: 'GraphQL', icon: <SiGraphql className="text-[#E535AB] text-2xl" />, category: 'Backend' },
-  { name: 'Socket.io', icon: <MdSecurity className="text-[#8E44AD] text-2xl" />, category: 'Backend' },
+  // { name: 'GraphQL', icon: <SiGraphql className="text-[#E535AB] text-2xl" />, category: 'Backend' },
   { name: 'JWT / OAuth', icon: <MdSecurity className="text-[#F4B400] text-2xl" />, category: 'Backend' },
+  { name: 'Socket.io', icon: <MdSecurity className="text-[#8E44AD] text-2xl" />, category: 'Backend' },
   // 🗄️ Databases
   { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248] text-2xl" />, category: 'Databases' },
   { name: 'PostgreSQL', icon: <SiPostgresql className="text-[#336791] text-2xl" />, category: 'Databases' },
@@ -39,6 +39,7 @@ const skills: Skill[] = [
   { name: 'React.js', icon: <FaReact className="text-[#61DAFB] text-3xl" />, category: 'Frontend' },
   { name: 'TypeScript', icon: <SiTypescript className="text-[#3178C6] text-2xl" />, category: 'Frontend' },
   { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#06B6D4] text-2xl" />, category: 'Frontend' },
+  { name: 'Bootstrap', icon: <SiBootstrap className="text-[#06B6D4] text-2xl" />, category: 'Frontend' },
 ];
 
 const Skills = () => {
