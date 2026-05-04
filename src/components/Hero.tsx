@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import profileImg from '../assets/images/profile3.png';
-import myResume from '../assets/pdfs/Tauhid Node.js Backend Developer.pdf';
+import myResume from '../assets/pdfs/Shaikh Tauhid Full Stack Developer.pdf';
 
 const Hero = () => {
   const [showProfile, setShowProfile] = useState(false);
